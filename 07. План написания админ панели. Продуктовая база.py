@@ -102,13 +102,7 @@ async def send_calories(message: types.Message, state: FSMContext):
     await message.answer(f'Ваша норма калорий: {calories} калорий в день.')  # Ответ пользователю
     await state.finish()  # Завершение состояния
 
-
-# Импортируем необходимые модули и функции
-from crud_functions import get_all_products
-from aiogram import types
-import os
-
-
+# Функция для получения списка продуктов при нажатии кнопки "Купить"
 @dp.message_handler(lambda message: message.text == 'Купить')
 async def get_buying_list(message: types.Message):
     # Получаем список продуктов из базы данных
